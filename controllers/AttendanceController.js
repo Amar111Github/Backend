@@ -14,7 +14,6 @@ const createAttendance = async (req, res) => {
     ResumeTime,
     resumeTimeMS,
     BreakReasion,
-
     status,
     totalLogAfterBreak,
   } = req.body;

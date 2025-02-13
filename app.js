@@ -9,14 +9,18 @@ const cloudinary = require("cloudinary").v2;
 const path = require("path");
 const errorHandler = require("./middleware/errorHandler");
 
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://munc.app",
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   },
 });
+
+
+
 require("dotenv").config();
 
 const connection = require("./dbConnection/dbconnect");
@@ -85,7 +89,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://munc.app"],
     credentials: true,
   })
 );
@@ -146,6 +150,7 @@ app.get("/api/getTask", async (req, res) => {
     });
   } catch (error) {}
 });
+
 
 app.post("/api/tasks/:taskId/employees", async (req, res) => {
   const taskId = req.params.taskId;
